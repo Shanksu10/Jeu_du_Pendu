@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Jeu du Pendu</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- font-family-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <!--script-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="themes.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Jeu du Pendu</h1>
+    <p align="center" id="description-jeu">Sauver le bonhomme pendu. Pour commencer le jeu veuillez choisir un thème parmi les thèmes ci-contre puis devinez le mot caché. Vos bonnes et mauvaises lettres sont comptabilisées ainsi que la durée de la partie. Vous perdez la partie si le bonhomme apparrait en entier. Si vos résultats sont remarquables on demande vous enregistrer avec les top dix participants. Quand vous trouverrez le mot caché une autre partie est automatiquement lancée avec un mot aléatoirement choisi du dernier thème. À chaque moment vous pouvez voir la liste des top dix en cliquant sur le bouton "Aficher meilleurs joueurs", et aussi changer le thème.</p>
+    <div class="jeu-container">
+      <!-- Themes -->
+      <div class="themes" id="themes">
+        <table class="all-themes">
+          
+        </table>
+      </div>
+      <div align="center">
+        <span  class="life"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"></span>
+        <span  class="life"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"></span>
+        <span  class="life"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"></span>
+        <span  class="life"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"></span>
+        <span  class="life"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"></span>
+        <span  class="life"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"></span>
+      </div>
+      <!-- Dessin -->
+      <svg height="250" width="200" class=figure-contenant>
+        <!--support-->
+        <line x1="60" y1="20" x2="140" y2="20"/>
+        <line x1="140" y1="20" x2="140" y2="50"/>
+        <line x1="60" y1="20" x2="60" y2="230"/>
+        <line x1="20" y1="230" x2="100" y2="230"/>
+        <!--bonhomme-->
+          <!--tête-->
+        <circle cx="140" cy="70" r="20" class="bonhomme-part"/>
+          <!--corp-->
+        <line x1="140" y1="90" x2="140" y2="150" class="bonhomme-part"/>
+          <!--bras-->
+        <line x1="140" y1="120" x2="120" y2="100" class="bonhomme-part"/>
+        <line x1="140" y1="120" x2="160" y2="100" class="bonhomme-part"/>
+          <!--jambre-->
+        <line x1="140" y1="150" x2="120" y2="180" class="bonhomme-part"/>
+        <line x1="140" y1="150" x2="160" y2="180" class="bonhomme-part"/>
+      </svg>
+      <!-- la balise des mauvaises lettres que l'utilisateur à déjà tapé-->
+      <div class="mauvaises-lettres-container">
+        <p></p>
+        <div id="mauvaises-lettres"></div>
+      </div>
+      <!-- la balise du mot en question -->
+      
+      <div class="mot" id="mot"></div>
+      <div class="description" id="description"></div>
+      
+    </div>
+    <!-- message final qui informe l'utilisateur si il a gagné ou perdu la parti -->
+    <div class="message-final-container" id="message-final-container">
+      <div class="message-final">
+        <h2 id="message">
+          Bravo ! vous avez gagné.
+        </h2>
+        <button id="btn-rejouer">Rejouer</button>
+      </div>
+    </div>
+    <!-- table des top dix -->
+    <div class="table-topdix-container" id="table-topdix-container">
+      <table class="table-topdix" border="1">
+        <thead>
+          <tr>
+            <td>Rangs</td><td>Noms</td><td>Bonnes lettres</td><td>Mauvaises lettres</td><td>Temps</td>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <button id="OK-btn">OK</button>
+    </div>
+    <div class="btn-meilleurs-joueurs-container">
+      <button>Afficher meilleurs joueurs</button>
+    </div>
+    <!-- notification qui informe l'utilisateur s'il a déjà tapé une lettre -->
+    <div class="notification-container" id="notification-container">
+      <p>Vous avez déjà essayé cette lettre !</p>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+
+ 
+</body>
+
+</html>
